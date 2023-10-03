@@ -1,32 +1,58 @@
-public class run{
-    public static void main(String[] args){
-        x.println("Welcome to XYZ");
-        x.println("==============");
-        x.println("1 - Student");
-        x.println("2 - Teacher");
-        x.println("3 - Class Room");
-        x.println("4 - Exam");
-        String ch = x.input("select your Choice ?");
+/**
+ * run
+ */
+public class run {
 
-        switch(ch) {
-            case "1":
-                x.println("you selected Student");
+    public static void main(String[] args) {
+        
+        mainmenu();
+
+    }
+
+    public static void mainmenu(){
+         
+        student stu = new student(0, null, null);
+
+        x.println("Welcome To Muslih Pvt(Ltd)");
+        x.println("__________");
+        x.println("01- Student");
+        x.println("02- Teacher");
+        x.println("03- Class Room");
+        x.println("04- Exam");
+        String ans=x.input("Select Your Choice:");
+
+        switch (ans) {
+            case ("01"):
+
+            x.println("You Selected Student");
+            stu.menu();
+            
+    
+                
                 break;
-            case "2":
-                x.println("you selected Teacher");
+            case ("02"):
+
+            x.println("You Selected Teacher");
+            
+    
+                
                 break;
-            case "3":
-                x.println("you selected Class Room");
+            case ("03"):
+
+            x.println("You Selected Class Room");
+    
+                
                 break;
-            case "4":
-                x.println("you selected Exam");
+            case ("04"):
+
+            x.println("You Selected Exam");
+    
+                
                 break;
+        
             default:
             x.println("Invalid Choice");
-            main(new String[] {});
-            break;
+                break;
         }
     }
-        
-
 }
