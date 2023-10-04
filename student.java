@@ -57,6 +57,15 @@ public class student {
                 CreateNewStudent();
                 break;
         
+            case ("02"):
+                updatestudent();
+                break;
+
+            case ("07"):
+                Displayall();
+                break;
+
+
             default:
                 break;
         }
@@ -79,6 +88,51 @@ public class student {
         } else {
             menu();
         }
+    }
+
+    public void updatestudent(){
+        int id =x.inputint("Enter the Student Id To Find: ");
+
+        student findstudent = null;
+
+        for(student student : DB.student){
+
+            if(student.getId() == id){
+                findstudent = student;
+                break;
+            }
+
+        }
+
+        if(findstudent == null){
+            x.println("Invalid Id");
+            updatestudent();
+        } else{
+            x.println("Student Found...");
+            String name = x.input("Enter the Student Name: ");
+            String mobile = x.input("Enter the Student Mobile: ");
+
+            findstudent.setId(id);
+            findstudent.setName(name);
+            findstudent.setMobile(mobile);
+
+            x.println("Data Updated");
+            Displayall();
+            menu();
+        }
+
+    }
+
+    public void Displayall() {
+
+        for(student s : DB.student){
+            x.println(s.toString());
+        }
+
+    }
+
+    public String tostring(){
+        return "Id:"+id + "name" +name + "mobile" + mobile ;
     }
     
 }
